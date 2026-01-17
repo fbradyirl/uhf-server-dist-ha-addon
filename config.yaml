@@ -23,5 +23,11 @@ map:
   - data:rw
 options:
   command: ""
+  port: 8000
+  password: ""
+  enable_commercial_detection: true
 schema:
   command: "str?"
+  port: "int(1,65535)?"
+  password: "str?"
+  enable_commercial_detection: "bool?"

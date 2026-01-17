@@ -1,7 +1,7 @@
-This is a Home Assistant Add-on wrapper for the **uhf-server-dist** project located at https://github.com/swapplications/uhf-server-dist.
+This is a Home Assistant Add-on wrapper for the **uhf-server-dist** project
+located at https://github.com/swapplications/uhf-server-dist.
 
-It clones the upstream repo each time the add-on starts and runs the UHF Server
-listening on port 8000.
+It runs the UHF Server (from the upstream Docker image) listening on port 8000.
 
 ## Installation
 
@@ -11,17 +11,24 @@ listening on port 8000.
 
 ## Configuration
 
-The wrapper attempts to auto-detect an entrypoint in the upstream repository.
-If the upstream repo changes or the auto-detection fails, set a custom command:
+The wrapper runs `uhf-server` by default. You can override the command if needed:
 
 ```yaml
-command: "./run.sh"
+command: "uhf-server --port 8000 --recordings-dir /data/recordings"
+```
+
+Optional settings:
+
+```yaml
+port: 8000
+password: ""
+enable_commercial_detection: true
 ```
 
 ## Recordings directory
 
 The add-on sets `RECORDINGS_DIR=/data/recordings`. This path is persisted across
-restarts by the add-on data store.
+restarts by the add-on data store. Database files are stored in `/data/db`.
 
 ## Attribution
 
