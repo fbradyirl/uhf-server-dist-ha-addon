@@ -20,10 +20,15 @@ command: "uhf-server --port 8000 --recordings-dir /data/recordings"
 Optional settings:
 
 ```yaml
+host: "0.0.0.0"
 port: 8000
 password: ""
 enable_commercial_detection: true
 extra_args: ""
+ffmpeg_path: ""
+comskip_path: ""
+db_path: ""
+log_level: "INFO"
 ```
 
 ## Recordings directory
@@ -36,7 +41,8 @@ restarts by the add-on data store. Database files are stored in `/data/db`.
 Some providers block direct ffmpeg requests unless a specific user agent or
 headers are set. If you see HTTP 4xx probe errors from ffmpeg, try passing extra
 arguments to `uhf-server` using `extra_args` (only if the upstream binary
-supports those flags), or use a different source URL.
+supports those flags), or use a different source URL. The upstream help output
+does not list user-agent or header flags, so those may not be supported.
 
 ## Attribution
 
