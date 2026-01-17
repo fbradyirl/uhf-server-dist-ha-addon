@@ -2,7 +2,7 @@ name: UHF Server Dist (Wrapper)
 slug: uhf_server_dist
 description: Home Assistant add-on wrapper for uhf-server-dist.
 url: https://github.com/fbradyirl/uhf-server-dist-ha-addon
-version: "0.2.0"
+version: "0.2.1"
 arch:
   - aarch64
   - amd64
@@ -26,8 +26,10 @@ options:
   port: 8000
   password: ""
   enable_commercial_detection: true
+  extra_args: ""
 schema:
   command: "str?"
   port: "int(1,65535)?"
   password: "str?"
   enable_commercial_detection: "bool?"
+  extra_args: "str?"

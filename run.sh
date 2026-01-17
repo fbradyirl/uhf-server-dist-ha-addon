@@ -13,11 +13,13 @@ command_override=""
 port="${DEFAULT_PORT}"
 password=""
 enable_commercial_detection="true"
+extra_args=""
 if [ -f /data/options.json ]; then
   command_override="$(jq -r '.command // empty' /data/options.json || true)"
   port="$(jq -r '.port // 8000' /data/options.json || true)"
   password="$(jq -r '.password // empty' /data/options.json || true)"
   enable_commercial_detection="$(jq -r '.enable_commercial_detection // true' /data/options.json || true)"
+  extra_args="$(jq -r '.extra_args // empty' /data/options.json || true)"
 fi
 
 if [ -n "${command_override}" ]; then
@@ -41,6 +43,10 @@ if [ -n "${password}" ]; then
 fi
 if [ "${enable_commercial_detection}" = "true" ]; then
   args+=(--enable-commercial-detection)
+fi
+if [ -n "${extra_args}" ]; then
+  read -r -a extra_args_array <<< "${extra_args}"
+  args+=("${extra_args_array[@]}")
 fi
 
 echo "[uhf-addon] Starting uhf-server on port ${port}"
