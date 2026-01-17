@@ -2,7 +2,7 @@ name: UHF Server Dist (Wrapper)
 slug: uhf_server_dist
 description: Home Assistant add-on wrapper for uhf-server-dist.
 url: https://github.com/fbradyirl/uhf-server-dist-ha-addon
-version: "0.1.0"
+version: "0.2.0"
 arch:
   - aarch64
   - amd64
