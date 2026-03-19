@@ -1,4 +1,4 @@
-FROM swapplications/uhf-server:1.5.1
+FROM swapplications/uhf-server:1.6.0
 
 RUN apt-get update -o Acquire::Check-Valid-Until=false \
     && apt-get install -y --no-install-recommends \
